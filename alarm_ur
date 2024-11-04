@@ -1,0 +1,19 @@
+import time
+import datetime
+
+def alarm_ur(alarm_tid):
+    print(f"Alarmen er sat til {alarm_tid.strftime('%H:%M:%S')}.")
+    
+    while True:
+        nu = datetime.datetime.now()
+        
+        if nu.hour == alarm_tid.hour and nu.minute == alarm_tid.minute and nu.second == alarm_tid.second:
+            print("Alarmen ringer!")
+            break
+            
+        time.sleep(1)
+
+alarm_tid_input = input("Indtast alarmtid i formatet T:M:S: ")
+alarm_tid = datetime.datetime.strptime(alarm_tid_input, '%H:%M:%S')
+
+alarm_ur(alarm_tid)
